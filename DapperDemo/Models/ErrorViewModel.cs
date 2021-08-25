@@ -1,5 +1,3 @@
-using System;
-
 namespace DapperDemo.Models
 {
     public class ErrorViewModel
