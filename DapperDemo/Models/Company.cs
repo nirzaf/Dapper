@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DapperDemo.Models
 {
-    [Dapper.Contrib.Extensions.Table("Companies")]
+    [Table("Companies")]
     public class Company
     {
         public Company()

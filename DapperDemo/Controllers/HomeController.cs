@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DapperDemo.Models;
@@ -32,28 +31,28 @@ namespace DapperDemo.Controllers
 
             Company company = new Company()
             {
-                Name = "Test" + Guid.NewGuid().ToString(),
-                Address = "test address",
-                City = "test city",
-                PostalCode = "test postalCode",
-                State = "test state",
+                Name = Faker.Company.Name() ,
+                Address = Faker.Address.StreetAddress(),
+                City = Faker.Address.City(),
+                PostalCode = Faker.Address.UkPostCode(),
+                State = Faker.Address.UsState(),
                 Employees = new List<Employee>()
             };
 
             company.Employees.Add(new Employee()
             {
-                Email = "test Email",
-                Name = "Test Name " + Guid.NewGuid().ToString(),
-                Phone = " test phone",
-                Title = "Test Manager"
+                Email = Faker.Internet.Email(),
+                Name = Faker.Name.FullName(),
+                Phone = Faker.Phone.Number(),
+                Title = Faker.Company.Name()
             });
 
             company.Employees.Add(new Employee()
             {
-                Email = "test Email 2",
-                Name = "Test Name 2" + Guid.NewGuid().ToString(),
-                Phone = " test phone 2",
-                Title = "Test Manager 2"
+                Email = Faker.Internet.Email(),
+                Name = Faker.Name.FullName(),
+                Phone = Faker.Phone.Number(),
+                Title = Faker.Company.Name()
             });
             _bonRepo.AddTestCompanyWithEmployeesWithTransaction(company);
             return RedirectToAction(nameof(Index));

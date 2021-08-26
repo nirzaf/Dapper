@@ -24,7 +24,7 @@ namespace DapperDemo.Controllers
         // GET: Companies
         public async Task<IActionResult> Index()
         {
-            return View(_compRepo.GetAll());
+            return  View(_compRepo.GetAll());
             //return View(_dapperRepo.List<Company>("usp_GetALLCompany"));
         }
 

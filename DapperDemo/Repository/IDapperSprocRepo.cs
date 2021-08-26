@@ -6,7 +6,6 @@ namespace DapperDemo.Repository
     public interface IDapperSprocRepo
     {
         string ConnectionString { get; set; }
-
         void Execute(string name);
         void Execute(string name, object param);
         List<T> List<T>(string name);
